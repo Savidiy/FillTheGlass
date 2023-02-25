@@ -1,0 +1,17 @@
+{
+    "name": "MvvmModule.Templates",
+    "rootNamespace": "",
+    "references": [
+        "MvvmModule",
+        "Utils"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
