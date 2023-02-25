@@ -12,9 +12,9 @@ namespace MvvmModule
     {
         private readonly List<IDisposable> _bindDisposables = new();
 
-        public TViewModel ViewModel { get; private set; }
+        protected TViewModel ViewModel { get; private set; }
 
-        protected View(GameObject gameObject, IViewFactory viewFactory) : base(gameObject, viewFactory)
+        protected View(THierarchy hierarchy, IViewFactory viewFactory) : base(hierarchy, viewFactory)
         {
         }
 
@@ -89,11 +89,9 @@ namespace MvvmModule
         public bool IsActive => Hierarchy.gameObject.activeSelf;
         public THierarchy Hierarchy { get; }
 
-        protected View(GameObject gameObject, IViewFactory viewFactory) : base(viewFactory)
+        protected View(THierarchy hierarchy, IViewFactory viewFactory) : base(viewFactory)
         {
-            Hierarchy = gameObject.GetComponent<THierarchy>();
-            if (Hierarchy == null)
-                Debug.LogError($"Can't find component '{typeof(THierarchy)}' on '{gameObject.name}'");
+            Hierarchy = hierarchy;
         }
 
         public void SetActive(bool active)

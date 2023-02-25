@@ -1,4 +1,5 @@
 using Bootstrap;
+using LevelInfoWindowModule.ViewModel;
 using MainModule;
 using MvvmModule;
 using SettingsModule;
@@ -24,10 +25,11 @@ namespace Installers
             Container.Bind<WindowsRootProvider>().AsSingle();
             Container.BindInterfacesTo<StartWindowPresenter>().AsSingle();
             Container.BindInterfacesTo<SettingsWindowPresenter>().AsSingle();
+            Container.BindInterfacesTo<LevelInfoWindowPresenter>().AsSingle();
             
             Container.Bind<MainStateMachine>().AsSingle();
             Container.Bind<StartMainState>().AsSingle();
-            Container.Bind<SettingsMainState>().AsSingle();
+            Container.Bind<LevelInfoMainState>().AsSingle();
             
             Container.Bind<GameSettings>().FromInstance(GameSettings);
         }

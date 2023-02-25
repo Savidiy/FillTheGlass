@@ -1,21 +1,21 @@
 ﻿using System;
+using LevelInfoWindowModule.Contracts;
+using LevelInfoWindowModule.View;
 using MvvmModule;
-using StartWindowModule.Contracts;
-using StartWindowModule.View;
 using UiModule;
 using UnityEngine;
 
-namespace StartWindowModule.ViewModels
+namespace LevelInfoWindowModule.ViewModel
 {
-    public sealed class StartWindowPresenter : IDisposable, IStartWindowPresenter
+    public sealed class LevelInfoWindowPresenter : IDisposable, ILevelInfoWindowPresenter
     {
-        private const string PREFAB_NAME = "Start_window";
+        private const string PREFAB_NAME = "LevelInfo_window";
         private readonly WindowsRootProvider _windowsRootProvider;
         private readonly IViewFactory _viewFactory;
         private readonly IViewModelFactory _viewModelFactory;
-        private readonly StartWindowView _view;
+        private readonly LevelInfoWindowView _view;
 
-        public StartWindowPresenter(WindowsRootProvider windowsRootProvider, IViewFactory viewFactory,
+        public LevelInfoWindowPresenter(WindowsRootProvider windowsRootProvider, IViewFactory viewFactory,
             IViewModelFactory viewModelFactory)
         {
             _viewFactory = viewFactory;
@@ -27,7 +27,7 @@ namespace StartWindowModule.ViewModels
 
         public void ShowWindow()
         {
-            var viewModel = _viewModelFactory.CreateEmptyViewModel<StartWindowViewModel>();
+            var viewModel = _viewModelFactory.CreateEmptyViewModel<LevelInfoWindowViewModel>();
             _view.Initialize(viewModel);
             _view.SetActive(true);
         }
@@ -43,10 +43,10 @@ namespace StartWindowModule.ViewModels
             _view.Dispose();
         }
 
-        private StartWindowView CreateView()
+        private LevelInfoWindowView CreateView()
         {
             Transform root = _windowsRootProvider.GetWindowRoot();
-            var view = _viewFactory.CreateView<StartWindowView, StartWindowHierarchy>(PREFAB_NAME, root);
+            var view = _viewFactory.CreateView<LevelInfoWindowView, LevelInfoWindowHierarchy>(PREFAB_NAME, root);
             return view;
         }
     }

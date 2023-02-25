@@ -1,0 +1,12 @@
+﻿{
+  "name": "LevelInfoWindowModule",
+  "references": [
+    "GUID:51db2d5248a843a2b4bf126ae8d8c46c",
+    "GUID:25aca8c3b2284259a5d742a39808c54f",
+    "GUID:1f3ffa93f26849029d9d138bfad81907",
+    "GUID:08d67a3411b34294b340c26d85ab24db",
+    "GUID:b4cf673d5b644172b42c18346fd37dd3",
+    "GUID:1942c15c66824256bb9f19eba7d72f3a",
+    "GUID:d85e0bc068d24ee48ced53c32eac8846"
+  ]
+}

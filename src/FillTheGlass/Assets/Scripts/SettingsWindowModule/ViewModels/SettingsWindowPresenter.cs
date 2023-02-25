@@ -13,7 +13,8 @@ namespace SettingsWindowModule.ViewModels
         private readonly WindowsRootProvider _windowsRootProvider;
         private readonly IViewFactory _viewFactory;
         private readonly IViewModelFactory _viewModelFactory;
-        private SettingsWindowView _view;
+        private readonly SettingsWindowView _view;
+        private SettingsWindowViewModel _viewModel;
 
         public SettingsWindowPresenter(WindowsRootProvider windowsRootProvider, IViewFactory viewFactory,
             IViewModelFactory viewModelFactory)
@@ -21,29 +22,42 @@ namespace SettingsWindowModule.ViewModels
             _viewFactory = viewFactory;
             _viewModelFactory = viewModelFactory;
             _windowsRootProvider = windowsRootProvider;
-            CreateView();
+            _view = CreateView();
+            _view.SetActive(false);
         }
 
         public void ShowWindow()
         {
-            var viewModel = _viewModelFactory.CreateEmptyViewModel<SettingsWindowViewModel>();
-            _view.Initialize(viewModel);
+            if (_viewModel != null)
+                _viewModel.NeedClose -= HideWindow;
+
+            _viewModel = _viewModelFactory.CreateEmptyViewModel<SettingsWindowViewModel>();
+            _viewModel.NeedClose += HideWindow;
+            _view.Initialize(_viewModel);
+            _view.Hierarchy.transform.SetAsLastSibling();
+            _view.SetActive(true);
         }
 
         public void HideWindow()
         {
+            _viewModel.NeedClose -= HideWindow;
             _view.ClearViewModel();
+            _view.SetActive(false);
         }
 
         public void Dispose()
         {
+            if (_viewModel != null)
+                _viewModel.NeedClose -= HideWindow;
+
             _view.Dispose();
         }
 
-        private void CreateView()
+        private SettingsWindowView CreateView()
         {
             Transform root = _windowsRootProvider.GetWindowRoot();
-            _view = _viewFactory.CreateView<SettingsWindowView, SettingsWindowHierarchy>(PREFAB_NAME, root);
+            var view = _viewFactory.CreateView<SettingsWindowView, SettingsWindowHierarchy>(PREFAB_NAME, root);
+            return view;
         }
     }
 }

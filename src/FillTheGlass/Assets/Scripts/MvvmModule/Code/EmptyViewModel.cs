@@ -1,5 +1,3 @@
-using Zenject;
-
 namespace MvvmModule
 {
     public abstract class EmptyViewModel : ViewModel

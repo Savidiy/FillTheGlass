@@ -7,12 +7,12 @@ namespace Bootstrap
     {
         private readonly MainStateMachine _mainStateMachine;
 
-        public Bootstrapper(MainStateMachine mainStateMachine, StartMainState startMainState, SettingsMainState settingsMainState)
+        public Bootstrapper(MainStateMachine mainStateMachine, StartMainState startMainState, LevelInfoMainState levelInfoMainState)
         {
             _mainStateMachine = mainStateMachine;
             
             _mainStateMachine.AddState(startMainState);
-            _mainStateMachine.AddState(settingsMainState);
+            _mainStateMachine.AddState(levelInfoMainState);
         }
     
         public void Initialize()

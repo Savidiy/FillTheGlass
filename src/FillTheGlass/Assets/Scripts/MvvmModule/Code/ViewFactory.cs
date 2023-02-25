@@ -18,7 +18,7 @@ namespace MvvmModule
             where TView : View<THierarchy>
             where THierarchy : MonoBehaviour
         {
-            _diContainer.Bind<GameObject>().FromInstance(hierarchy.gameObject).AsTransient();
+            _diContainer.Bind<THierarchy>().FromInstance(hierarchy).AsTransient();
             _diContainer.Bind<TView>().AsTransient();
 
             var view = _diContainer.Resolve<TView>();
