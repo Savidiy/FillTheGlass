@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Savidiy.Utils
+namespace MvvmModule
 {
     public abstract class DisposableCollector : IDisposable
     {

@@ -4,7 +4,12 @@
     "references": [
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
         "MvvmModule",
-        "Bootstrap"
+        "Bootstrap",
+        "GUID:1942c15c66824256bb9f19eba7d72f3a",
+        "GUID:bfa9980576d94fc69677c8c891538fdb",
+        "GUID:ce96cfe500054c0ea5ed1a6e10b7d6c1",
+        "GUID:e5e066a20f4d4a36a5220c06e7e5d9ef",
+        "GUID:1f3ffa93f26849029d9d138bfad81907"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

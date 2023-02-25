@@ -32,10 +32,10 @@ namespace Savidiy.Utils.StateMachine
             T state = GetState(stateType);
             _currentState = state;
 
-            if (state is not IState stateWithoutPayload)
+            if (state is not IState concreteState)
                 throw new Exception($"There is type '{stateType}' without '{nameof(IState)}' interface");
 
-            stateWithoutPayload.Enter();
+            concreteState.Enter();
         }
 
         public void EnterToState<TType, TPayload>(TPayload payload)

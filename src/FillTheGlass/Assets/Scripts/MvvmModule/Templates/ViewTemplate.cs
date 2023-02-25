@@ -22,12 +22,17 @@ namespace MvvmModule.Templates
     {
     }
 
-    public sealed class A123ViewModel : IA123ViewModel
+    public sealed class A123ViewModel : ViewModel<A123Args>, IA123ViewModel
     {
         // private readonly IViewModelFactory _viewModelFactory;
         // var viewModel = _viewModelFactory.CreateViewModel<A123ViewModel>();
-        public void Dispose()
+
+        public A123ViewModel(A123Args model, IViewModelFactory viewModelFactory) : base(model, viewModelFactory)
         {
         }
+    }
+
+    public class A123Args
+    {
     }
 }
