@@ -10,15 +10,8 @@ namespace SettingsWindowModule.View
 
         protected override void UpdateViewModel(ISettingsWindowViewModel viewModel)
         {
-            Hierarchy.ResetButton.onClick.AddListener(OnResetButtonClick);
-            Hierarchy.BackButton.onClick.AddListener(OnBackButtonClick);
-        }
-
-        protected override void ReleaseViewModel()
-        {
-            base.ReleaseViewModel();
-            Hierarchy.ResetButton.onClick.RemoveListener(OnResetButtonClick);
-            Hierarchy.BackButton.onClick.RemoveListener(OnBackButtonClick);
+            BindClick(Hierarchy.ResetButton, OnResetButtonClick);
+            BindClick(Hierarchy.BackButton, OnBackButtonClick);
         }
 
         private void OnBackButtonClick()

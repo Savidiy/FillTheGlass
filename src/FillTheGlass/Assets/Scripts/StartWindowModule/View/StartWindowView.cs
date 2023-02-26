@@ -13,17 +13,9 @@ namespace StartWindowModule.View
             Hierarchy.ContinueButton.gameObject.SetActive(viewModel.HasProgress);
             Hierarchy.StartButton.gameObject.SetActive(!viewModel.HasProgress);
 
-            Hierarchy.StartButton.onClick.AddListener(OnStartButtonClick);
-            Hierarchy.ContinueButton.onClick.AddListener(OnContinueButtonClick);
-            Hierarchy.SettingsButton.onClick.AddListener(OnSettingsButtonClick);
-        }
-
-        protected override void ReleaseViewModel()
-        {
-            base.ReleaseViewModel();
-            Hierarchy.StartButton.onClick.RemoveListener(OnStartButtonClick);
-            Hierarchy.ContinueButton.onClick.RemoveListener(OnContinueButtonClick);
-            Hierarchy.SettingsButton.onClick.RemoveListener(OnSettingsButtonClick);
+            BindClick(Hierarchy.StartButton, OnStartButtonClick);
+            BindClick(Hierarchy.ContinueButton, OnContinueButtonClick);
+            BindClick(Hierarchy.SettingsButton, OnSettingsButtonClick);
         }
 
         private void OnSettingsButtonClick()

@@ -15,18 +15,12 @@ namespace LevelWindowModule.View
             Bind(viewModel.CanClick, OnCanClickChange);
             Bind(viewModel.GlassSprite, OnGlassSpriteChange);
 
-            Hierarchy.GlassButton.onClick.AddListener(OnGlassClick);
+            BindClick(Hierarchy.GlassButton, OnGlassClick);
         }
 
         private void OnCanClickChange(bool canClick)
         {
             Hierarchy.GlassButton.interactable = canClick;
-        }
-
-        protected override void ReleaseViewModel()
-        {
-            base.ReleaseViewModel();
-            Hierarchy.GlassButton.onClick.RemoveListener(OnGlassClick);
         }
 
         private void OnGlassSpriteChange(Sprite sprite)
@@ -47,7 +41,7 @@ namespace LevelWindowModule.View
         public override void Dispose()
         {
             base.Dispose();
-            if (Hierarchy.gameObject != null)
+            if (Hierarchy != null)
                 Object.Destroy(Hierarchy.gameObject);
         }
     }

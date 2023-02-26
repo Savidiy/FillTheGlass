@@ -15,6 +15,13 @@ namespace LevelWindowModule.View
         protected override void UpdateViewModel(ILevelWindowViewModel viewModel)
         {
             _emptyGlassesView.Initialize(viewModel.EmptyGlassesViewModel);
+            
+            BindClick(Hierarchy.SettingsButton, OnSettingsClick);
+        }
+
+        private void OnSettingsClick()
+        {
+            
         }
     }
 }

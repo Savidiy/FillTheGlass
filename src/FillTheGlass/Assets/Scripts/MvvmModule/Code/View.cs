@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Savidiy.Utils;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace MvvmModule
 {
@@ -11,6 +12,7 @@ namespace MvvmModule
         where TViewModel : class, IViewModel
     {
         private readonly List<IDisposable> _bindDisposables = new();
+        private readonly List<(Button button, UnityAction onClick)> _bindButtonDisposables = new();
 
         protected TViewModel ViewModel { get; private set; }
 
@@ -34,6 +36,14 @@ namespace MvvmModule
                 _bindDisposables[i].Dispose();
 
             _bindDisposables.Clear();
+
+            for (var index = 0; index < _bindButtonDisposables.Count; index++)
+            {
+                (Button button, UnityAction onClick) = _bindButtonDisposables[index];
+                button.onClick.RemoveListener(onClick);
+            }
+
+            _bindButtonDisposables.Clear();
         }
 
         public override void ClearViewModel()
@@ -81,6 +91,12 @@ namespace MvvmModule
         {
             _bindDisposables.Add(field.ObserveCountChanged().Subscribe(onChange));
             onChange(field.Count);
+        }
+
+        protected void BindClick(Button button, UnityAction onClick)
+        {
+            button.onClick.AddListener(onClick);
+            _bindButtonDisposables.Add((button, onClick));
         }
     }
 

@@ -20,18 +20,9 @@ namespace LevelInfoWindowModule.View
             Hierarchy.TargetMoneyLabel.text = $"Level target {viewModel.TargetMoneyCount}$";
             Hierarchy.TotalMoneyLabel.text = $"Total {viewModel.TotalMoneyCount}$";
 
-            Hierarchy.BackButton.onClick.AddListener(OnBackButtonClick);
-            Hierarchy.StartButton.onClick.AddListener(OnStartButtonClick);
-            Hierarchy.SettingsButton.onClick.AddListener(OnSettingsButtonClick);
-        }
-
-        protected override void ReleaseViewModel()
-        {
-            base.ReleaseViewModel();
-
-            Hierarchy.BackButton.onClick.RemoveListener(OnBackButtonClick);
-            Hierarchy.StartButton.onClick.RemoveListener(OnStartButtonClick);
-            Hierarchy.SettingsButton.onClick.RemoveListener(OnSettingsButtonClick);
+            BindClick(Hierarchy.BackButton, OnBackButtonClick);
+            BindClick(Hierarchy.StartButton, OnStartButtonClick);
+            BindClick(Hierarchy.SettingsButton, OnSettingsButtonClick);
         }
 
         private void OnSettingsButtonClick()
