@@ -10,7 +10,7 @@ namespace LevelWindowModule
 {
     public sealed class EmptyGlassViewModel : ViewModel<EmptyGlassArgs>, IEmptyGlassViewModel
     {
-        private readonly GlassSpriteProvider _glassSpriteProvider;
+        private readonly GlassStaticDataProvider _glassStaticDataProvider;
         private readonly ReactiveProperty<bool> _hasGlass = new();
         private readonly ReactiveProperty<bool> _canClick = new();
         private readonly ReactiveProperty<Sprite> _glassSprite = new();
@@ -22,9 +22,9 @@ namespace LevelWindowModule
         public IReadOnlyReactiveProperty<Sprite> GlassSprite => _glassSprite;
 
         public EmptyGlassViewModel(EmptyGlassArgs model, IViewModelFactory viewModelFactory, LevelHolder levelHolder,
-            GlassSpriteProvider glassSpriteProvider) : base(model, viewModelFactory)
+            GlassStaticDataProvider glassStaticDataProvider) : base(model, viewModelFactory)
         {
-            _glassSpriteProvider = glassSpriteProvider;
+            _glassStaticDataProvider = glassStaticDataProvider;
             _levelModel = levelHolder.LevelModel;
             _emptyGlassesModel = _levelModel.EmptyGlassesModel;
             _emptyGlassesModel.EmptyGlassesChanged += OnEmptyGlassesChanged;
@@ -49,7 +49,7 @@ namespace LevelWindowModule
             _hasGlass.Value = hasGlass;
 
             if (hasGlass)
-                _glassSprite.Value = _glassSpriteProvider.GetSpriteByType(glassFormType);
+                _glassSprite.Value = _glassStaticDataProvider.GetSpriteByType(glassFormType);
         }
 
         public void GlassClickFromView()

@@ -12,7 +12,8 @@ namespace SettingsModule
     [CreateAssetMenu(fileName = "GameSettings", menuName = "GameSettings", order = 0)]
     public class GameSettings : SerializedScriptableObject
     {
-        public Dictionary<EGlassFormType, Sprite> GlassSprites;
+        public Dictionary<EGlassFormType, Sprite> GlassSprites = new();
+        public Dictionary<EGlassFormType, AccessoriesPositionData> AccessoriesPositions = new();
         public List<LevelData> Levels;
 
         public int GetLevelTargetMoney(int levelNumber)
@@ -37,5 +38,13 @@ namespace SettingsModule
         public int DurationInSeconds;
 
         public List<EGlassFormType> StartEmptyGlasses;
+    }
+
+    [Serializable]
+    public sealed class AccessoriesPositionData
+    {
+        public Vector3 IcePosition;
+        public Vector3 CitrusPosition;
+        public Vector3 StrawPosition;
     }
 }

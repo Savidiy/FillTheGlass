@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace LevelWindowModule
 {
-    public sealed class GlassSpriteProvider
+    public sealed class GlassStaticDataProvider
     {
         private readonly GameSettings _gameSettings;
 
-        public GlassSpriteProvider(GameSettings gameSettings)
+        public GlassStaticDataProvider(GameSettings gameSettings)
         {
             _gameSettings = gameSettings;
         }
@@ -23,5 +23,17 @@ namespace LevelWindowModule
 
             throw new Exception($"Can't find sprite for type '{glassFormType}'");
         }
+
+        public AccessoriesPositionData GetAccessoriesPositionByType(EGlassFormType glassFormType)
+        {
+            if (_gameSettings.AccessoriesPositions.TryGetValue(glassFormType, out AccessoriesPositionData accessoriesPositionData))
+            {
+                return accessoriesPositionData;
+            }
+
+            throw new Exception($"Can't find AccessoriesPositionData for type '{glassFormType}'");
+        }
     }
+    
+    
 }

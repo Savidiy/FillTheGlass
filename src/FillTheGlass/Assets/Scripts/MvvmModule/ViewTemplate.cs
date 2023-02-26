@@ -1,6 +1,7 @@
 ﻿using System;
 using UiModule;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MvvmModule
 {
@@ -10,7 +11,7 @@ namespace MvvmModule
 
     public sealed class B123View : View<B123Hierarchy, IB123ViewModel>
     {
-        // _view = _viewFactory.CreateView<B123View, B123Hierarchy>(PREFAB_NAME, root);
+        // _view = CreateView<B123View, B123Hierarchy>(PREFAB_NAME, root);
         public B123View(B123Hierarchy hierarchy, IViewFactory viewFactory) : base(hierarchy, viewFactory)
         {
         }
@@ -27,7 +28,7 @@ namespace MvvmModule
     public sealed class B123ViewModel : ViewModel<B123Args>, IB123ViewModel
     {
         // var args = new B123Args();
-        // var viewModel = _viewModelFactory.CreateViewModel<B123ViewModel, B123Args>(args);
+        // var viewModel = CreateViewModel<B123ViewModel, B123Args>(args);
 
         public B123ViewModel(B123Args model, IViewModelFactory viewModelFactory) : base(model, viewModelFactory)
         {

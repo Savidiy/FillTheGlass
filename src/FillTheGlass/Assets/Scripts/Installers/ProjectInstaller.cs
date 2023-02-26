@@ -38,7 +38,7 @@ namespace Installers
             Container.Bind<LevelPlayMainState>().AsSingle();
             
             Container.Bind<LevelHolder>().AsSingle();
-            Container.Bind<GlassSpriteProvider>().AsSingle();
+            Container.Bind<GlassStaticDataProvider>().AsSingle();
             Container.Bind<ProgressProvider>().AsSingle();
             Container.Bind<ProgressSaver>().AsSingle();
             Container.Bind<LevelModelFactory>().AsSingle();

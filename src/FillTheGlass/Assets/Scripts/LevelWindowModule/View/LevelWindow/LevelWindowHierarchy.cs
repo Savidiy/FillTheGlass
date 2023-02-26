@@ -7,5 +7,6 @@ namespace LevelWindowModule.View
     {
         public Button SettingsButton;
         public EmptyGlassesHierarchy EmptyGlassesHierarchy;
+        public CurrentGlassHierarchy CurrentGlassHierarchy;
     }
 }

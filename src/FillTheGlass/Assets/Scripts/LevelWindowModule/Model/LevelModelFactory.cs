@@ -17,8 +17,10 @@ namespace LevelWindowModule
             var timerModel = new TimerModel(_tickInvoker, levelData.DurationInSeconds);
             var moneyModel = new MoneyModel(levelData.TargetMoneyCount);
             var emptyGlassesModel = new EmptyGlassesModel(levelData.StartEmptyGlasses);
+            var glassModel = new GlassModel();
+            var currentGlassModel = new CurrentGlassModel(glassModel);
 
-            var levelModel = new LevelModel(timerModel, moneyModel, emptyGlassesModel);
+            var levelModel = new LevelModel(timerModel, moneyModel, emptyGlassesModel, currentGlassModel);
             return levelModel;
         }
     }
