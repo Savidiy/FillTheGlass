@@ -2,7 +2,7 @@
 using UiModule;
 using UnityEngine;
 
-namespace MvvmModule.Templates
+namespace MvvmModule
 {
     public sealed class A123Hierarchy : MonoBehaviour
     {
