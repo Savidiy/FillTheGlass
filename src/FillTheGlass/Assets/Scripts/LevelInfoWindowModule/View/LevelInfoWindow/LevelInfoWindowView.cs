@@ -7,7 +7,6 @@ namespace LevelInfoWindowModule.View
     {
         private readonly CalendarView _calendarView;
 
-        // _view = _viewFactory.CreateView<LevelInfoWindowView, LevelInfoWindowHierarchy>(PREFAB_NAME, root);
         public LevelInfoWindowView(LevelInfoWindowHierarchy hierarchy, IViewFactory viewFactory) : base(hierarchy, viewFactory)
         {
             _calendarView = CreateView<CalendarView, CalendarHierarchy>(Hierarchy.CalendarHierarchy);
@@ -18,7 +17,8 @@ namespace LevelInfoWindowModule.View
             _calendarView.Initialize(viewModel.CalendarViewModel);
 
             Hierarchy.LevelLabel.text = $"Level {viewModel.LevelNumber}";
-            Hierarchy.TargetLabel.text = $"Target {viewModel.TargetMoneyCount}$";
+            Hierarchy.TargetMoneyLabel.text = $"Level target {viewModel.TargetMoneyCount}$";
+            Hierarchy.TotalMoneyLabel.text = $"Total {viewModel.TotalMoneyCount}$";
 
             Hierarchy.BackButton.onClick.AddListener(OnBackButtonClick);
             Hierarchy.StartButton.onClick.AddListener(OnStartButtonClick);

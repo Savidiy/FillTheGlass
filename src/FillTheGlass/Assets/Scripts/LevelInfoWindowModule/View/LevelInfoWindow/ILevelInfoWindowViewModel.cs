@@ -7,6 +7,7 @@ namespace LevelInfoWindowModule.View
         ICalendarViewModel CalendarViewModel { get; }
         int LevelNumber { get; }
         int TargetMoneyCount { get; }
+        int TotalMoneyCount { get; }
         void BackClickFromView();
         void StartClickFromView();
         void SettingsClickFromView();

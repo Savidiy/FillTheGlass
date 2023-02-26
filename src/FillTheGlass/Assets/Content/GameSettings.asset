@@ -12,3 +12,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd5c385daf443239c5f38f86f3174a8, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -571919888, guid: fd9cceddb46e9774abdac08c93c3c9d6, type: 3}
+    - {fileID: -2043994017, guid: fd9cceddb46e9774abdac08c93c3c9d6, type: 3}
+    - {fileID: -1345196337, guid: fd9cceddb46e9774abdac08c93c3c9d6, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GlassSprites
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[LevelWindowModule.Contracts.EGlassFormType,
+        LevelWindowModule.Contracts],[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[LevelWindowModule.Contracts.EGlassFormType,
+        LevelWindowModule.Contracts]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Levels:
+  - TargetMoneyCount: 50
+    DurationInSeconds: 15
+    StartEmptyGlasses: 000000000200000001000000020000000000000003000000
+  - TargetMoneyCount: 100
+    DurationInSeconds: 30
+    StartEmptyGlasses: 0300000003000000000000000100000002000000000000000100000002000000

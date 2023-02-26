@@ -1,6 +1,8 @@
 ﻿using LevelInfoWindowModule.View;
 using MainModule;
 using MvvmModule;
+using Progress;
+using SettingsModule;
 using SettingsWindowModule.Contracts;
 
 namespace LevelInfoWindowModule.ViewModel
@@ -9,16 +11,22 @@ namespace LevelInfoWindowModule.ViewModel
     {
         private readonly MainStateMachine _mainStateMachine;
         private readonly ISettingsWindowPresenter _settingsWindowPresenter;
-       
+
         public ICalendarViewModel CalendarViewModel { get; }
         public int LevelNumber { get; }
         public int TargetMoneyCount { get; }
+        public int TotalMoneyCount { get; }
 
         public LevelInfoWindowViewModel(MainStateMachine mainStateMachine, ISettingsWindowPresenter settingsWindowPresenter,
-            IViewModelFactory viewModelFactory) : base(viewModelFactory)
+            ProgressProvider progressProvider, IViewModelFactory viewModelFactory, GameSettings gameSettings) : base(viewModelFactory)
         {
             CalendarViewModel = CreateEmptyViewModel<CalendarViewModel>();
-            
+
+            int currentLevel = progressProvider.CurrentLevel;
+            LevelNumber = currentLevel + 1;
+            TotalMoneyCount = progressProvider.TotalEarnedMoney;
+            TargetMoneyCount = gameSettings.GetLevelTargetMoney(currentLevel);
+
             _mainStateMachine = mainStateMachine;
             _settingsWindowPresenter = settingsWindowPresenter;
         }
@@ -31,6 +39,7 @@ namespace LevelInfoWindowModule.ViewModel
 
         public void StartClickFromView()
         {
+            _mainStateMachine.EnterToState<LevelPlayMainState>();
         }
 
         public void SettingsClickFromView()

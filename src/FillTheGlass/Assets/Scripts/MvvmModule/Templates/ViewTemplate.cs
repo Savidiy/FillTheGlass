@@ -26,6 +26,7 @@ namespace MvvmModule.Templates
 
     public sealed class B123ViewModel : ViewModel<B123Args>, IB123ViewModel
     {
+        // var args = new B123Args();
         // var viewModel = _viewModelFactory.CreateViewModel<B123ViewModel, B123Args>(args);
 
         public B123ViewModel(B123Args model, IViewModelFactory viewModelFactory) : base(model, viewModelFactory)

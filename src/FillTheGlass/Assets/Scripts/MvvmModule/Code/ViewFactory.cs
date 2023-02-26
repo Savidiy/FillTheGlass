@@ -24,7 +24,7 @@ namespace MvvmModule
             var view = _diContainer.Resolve<TView>();
 
             _diContainer.Unbind<TView>();
-            _diContainer.Unbind<GameObject>();
+            _diContainer.Unbind<THierarchy>();
             return view;
         }
 

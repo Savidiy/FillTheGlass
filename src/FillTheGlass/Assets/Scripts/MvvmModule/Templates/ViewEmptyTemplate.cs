@@ -26,8 +26,7 @@ namespace MvvmModule.Templates
 
     public sealed class A123ViewModel : EmptyViewModel, IA123ViewModel
     {
-        // private readonly IViewModelFactory _viewModelFactory;
-        // var viewModel = _viewModelFactory.CreateViewModel<A123ViewModel>();
+        // var viewModel = _viewModelFactory.CreateEmptyViewModel<A123ViewModel>();
 
         public A123ViewModel(IViewModelFactory viewModelFactory) : base(viewModelFactory)
         {
